@@ -2,6 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
+from datetime import datetime
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -9,6 +10,7 @@ def load_user(user_id):
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
+
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
@@ -43,3 +45,28 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'User {self.comment}'
+
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer,primary_key = True)
+    category = db.Column(db.Integer)
+    title = db.Column(db.String)
+    pitch = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+    def save_post(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_post(cls,id):
+        post = Post.query.filter_by(id=id).all()
+        return post
+
+    @classmethod
+    def get_posts_by_category(cls,category):
+        posts = Post.query.filter_by(category = category).all()
+        return posts
