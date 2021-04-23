@@ -3,6 +3,7 @@ from flask import render_template,request,redirect,url_for
 from . import main
 from ..models import Comment,User
 from .. import db,photos
+from .forms import UpdateProfile
 
 
 @main.route('/')
