@@ -17,15 +17,17 @@
 {% for pitch in pitches_list %}
 <h3>{{pitch.title}}</h3>
 <p>{{pitch.pitch}}</p>
-<p>Posted on ~ {{pitch.posted}}</p>
-<p>Posted by ~ {{pitch.user.username}}</p>
-<p>Upvotes ~ {{pitch.upvotes}}</p>
-<p>Downvotes ~ {{pitch.downvotes}}</p>
+<p>Posted on ~ <span class="highlight">{{pitch.posted.strftime('%d-%m-%Y')}}</span></p>
+<p>Posted by ~ <span class="highlight">{{pitch.user.username}}</span></p>
+<p>Upvotes ~ <span class="highlight">{{pitch.upvotes}}</span></p>
+<p>Downvotes ~ <span class="highlight">{{pitch.downvotes}}</span></p>
+
 <div>
-    <form action="/details/{{pitch.id}}/upvote" method="POST"><input type="submit" value="Upvote" /></form>
+    <form action="/details/{{pitch.id}}/upvote" method="POST"><input type="submit" value="Upvote" class="upvotes" /></form>
 </div>
+<br>
 <div>
-    <form action="/details/{{pitch.id}}/downvote" method="POST"><input type="submit" value="Downvote" /></form>
+    <form action="/details/{{pitch.id}}/downvote" method="POST"><input type="submit" value="Downvote" class="downvotes" /></form>
 </div>
 {% endfor %}
 
@@ -35,10 +37,11 @@
 
 {% for comment in comment_list %}
 
-<h4>Author</h4>
-<p>Posted by ~ {{comment.user.username}}</p>
+<div class="comments">
+    <p>Posted by ~ <span class="highlight">{{comment.user.username}}</span></p>
+    <p><span class="comment">{{comment.comment}}</span></p>
+</div>
 
-<p>{{comment.comment}}</p>
 
 {% endfor %}
 

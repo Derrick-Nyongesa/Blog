@@ -44,7 +44,44 @@ h2{
     color: white;
 }
 
-#link{
+.link{
     color: white;
+    font-weight: bold;
 }
 
+h3{
+    text-decoration: underline;
+}
+
+.highlight{
+    color: #0091ad;
+    font-weight: bold;
+}
+
+.comment{
+    font-style: italic;
+}
+
+.comments{
+    padding: 20px;
+    border: #ccc solid 1px;
+    margin-bottom: 20px;
+    background-color:#e6e6e6;
+    width: 100%;
+    color: #485e74;
+    border-radius: 10px
+}
+
+.upvotes{
+    color: #0a0908;
+    background-color: #8ac926;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.downvotes{
+    color: #0a0908;
+    font-weight: bold;
+    background-color: #ff0000;
+    border-radius: 10px;
+}
