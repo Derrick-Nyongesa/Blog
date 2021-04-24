@@ -10,41 +10,43 @@
 {% block content %}
 
 <div class="container">
-    <div>
-        <div class="pitches-title">
-            <h2>INTERVIEW PITCHES</h2>
-        <ul>
-            {{macro.displayPitchList(interviews)}}
-        </ul>
-        </div>
-        
-        <div class="pitches-title">
-            <h2>PICK-UP LINES PITCHES</h2>
-        <ul>
-            {{macro.displayPitchList(pickups)}}
-        </ul>
-        </div>
-        
-        <div class="pitches-title">
-            <h2>PRODUCT PITCHES</h2>
-        <ul>
-            {{macro.displayPitchList(products)}}
-        </ul>
-        </div>
-        
-        <div class="pitches-title">
-            <h2>PROMOTION PITCHES</h2>
-        <ul>
-            {{macro.displayPitchList(promotions)}}
-        </ul>
-        </div>
-        
-    </div>
+    <p class="lead">Welcome to Derrick-Blog</p>
+    <p class="lead">Where you can  submit your pitches and other users will vote on them 
+        and leave comments to give their feedback on them</p>
+    <p class="cl">Click on the pitch title to see the pitch details and you can click the button below to add your own pitch.</p>
 
-    <div class="pitch-link">
-        <p class="link"><a  href="/pitch"> Add Your own Pitch</a></p>
-        
+    <div class="row">
+        <div class="col-md-6">
+            <h2>INTERVIEW PITCHES</h2>
+            <ul>
+                {{macro.displayPitchList(interviews)}}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>PICK-UP LINES PITCHES</h2>
+            <ul>
+                {{macro.displayPitchList(pickups)}}
+            </ul>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>PRODUCT PITCHES</h2>
+            <ul>
+                {{macro.displayPitchList(products)}}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>PROMOTION PITCHES</h2>
+            <ul>
+                {{macro.displayPitchList(promotions)}}
+            </ul>
+        </div>
+    </div>
+    
+    <button class="btn btn-primary"><a id="link" href="/pitch"> Add Your own Pitch</a></button>
+        
+    
    
 </div>
 

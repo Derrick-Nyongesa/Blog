@@ -3,6 +3,7 @@ body{
     font-weight: 300;
     background: #181818;
     color: #fff;
+    font-size: 18px;
 }
 
 li{
@@ -10,18 +11,40 @@ li{
 }
 
 
-.pitches-title{
-    float: left;
-    width: 25%;
-    padding: 10px;
-    text-align: center;
+.pitch{
     padding: 20px;
     border: #ccc solid 1px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     background-color:#e6e6e6;
+    width: 100%;
+    color: #485e74;
+    border-radius: 10px
 }
 
-.link{
-    margin-top: 400px;
+h2{
+    text-align: center;
+    color: #0091ad;
+    font-weight:bold ;
+}
+
+.cl{
+    color: #6c757d;
+    font-style: italic;
+}
+
+.buton{
+    font-weight: bold;
+}
+
+.buton:hover{
+    color: #ff595e;
+}
+
+#link:hover{
+    color: white;
+}
+
+#link{
+    color: white;
 }
 
