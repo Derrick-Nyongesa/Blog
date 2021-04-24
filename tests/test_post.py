@@ -12,9 +12,9 @@ class TestPost(unittest.TestCase):
         User.query.delete()
 
     def test_check_instance_variables(self):
-        self.assertEquals(self.new_pitch.id,'1')
+        self.assertEquals(self.new_pitch.id,1)
         self.assertEquals(self.new_pitch.category,'interview')
-        self.assertEquals(self.new_pitch.title,'delloitte')
+        self.assertEquals(self.new_pitch.title,'deloitte')
         self.assertEquals(self.new_pitch.pitch,'i love business')
         self.assertEquals(self.new_pitch.user,self.user_Daniel)
 
