@@ -1,1 +1,39 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div>
+        <h2>INTERVIEW PITCHES</h2>
+        <ul>
+            {% for interview in interviews %}
+            <li>{{interview.title}}</li>
+            <li>{{interview.pitch}}</li>
+            {% endfor %}
+        </ul>
+        <h2>PICK-UP LINES PITCHES</h2>
+        <ul>
+            {% for pickup in pickups %}
+            <li>{{pickup.title}}</li>
+            <li>{{pickup.pitch}}</li>
+            {% endfor %}
+        </ul>
+        <h2>PRODUCT PITCHES</h2>
+        <ul>
+            {% for product in products %}
+            <li>{{product.title}}</li>
+            <li>{{product.pitch}}</li>
+            {% endfor %}
+        </ul>
+        <h2>PROMOTION PITCHES</h2>
+        <ul>
+            {% for promotion in promotions %}
+            <li>{{promotion.title}}</li>
+            <li>{{promotion.pitch}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+   
+</div>
+
+{% endblock %}

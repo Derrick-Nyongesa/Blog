@@ -64,10 +64,10 @@ class Pitch(db.Model):
 
     @classmethod
     def get_pitch(cls,id):
-        pitch = Pitches.query.filter_by(id=id).all()
+        pitch = Pitch.query.filter_by(id=id).all()
         return pitch
 
     @classmethod
     def get_pitches_by_category(cls,category):
-        pitches = Pitches.query.filter_by(category = category).all()
-        return posts
+        pitches = Pitch.query.filter_by(category = category).all()
+        return pitches

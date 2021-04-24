@@ -8,7 +8,15 @@ from .forms import UpdateProfile,NewPitch
 
 @main.route('/')
 def index():
-    return render_template('/index.html')
+    pitches =  Pitch.query.all()
+    interview_pitch = Pitch.get_pitches_by_category('1')
+    pickup_lines = Pitch.get_pitches_by_category('2')
+    product_pitch = Pitch.get_pitches_by_category('3')
+    promotion_pitch = Pitch.get_pitches_by_category('4')
+    if pitches is None:
+        return redirect(url_for('pitch.html'))
+        title = "pitches"
+    return render_template("index.html", pitches = pitches, interviews = interview_pitch, pickups = pickup_lines,products = product_pitch,promotions = promotion_pitch )
 
 @main.route('/pitch', methods = ['GET','POST'])
 @login_required
@@ -22,6 +30,8 @@ def pitch():
         title = "pitches"
         
     return render_template('new_pitch.html',pitch_form = form)
+
+
 
 
 @main.route('/user/<uname>')
