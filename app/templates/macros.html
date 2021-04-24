@@ -1,8 +1,10 @@
 {% macro displayPitchList(pitch_list) %}
 
 {% for pitch in pitch_list %}
-<li><a href="/details/{{pitch.id}}">{{pitch.title}}</a></li>
-<li>Posted by ~ {{pitch.user.username}}</li>
+
+    <li><a href="/details/{{pitch.id}}">{{pitch.title}}</a></li>
+    <li>Posted by ~ {{pitch.user.username}}</li>
+
 {% endfor %}
 
 {% endmacro %}

@@ -1,30 +1,49 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
     <div>
-        <h2>INTERVIEW PITCHES</h2>
+        <div class="pitches-title">
+            <h2>INTERVIEW PITCHES</h2>
         <ul>
             {{macro.displayPitchList(interviews)}}
         </ul>
-        <h2>PICK-UP LINES PITCHES</h2>
+        </div>
+        
+        <div class="pitches-title">
+            <h2>PICK-UP LINES PITCHES</h2>
         <ul>
             {{macro.displayPitchList(pickups)}}
         </ul>
-        <h2>PRODUCT PITCHES</h2>
+        </div>
+        
+        <div class="pitches-title">
+            <h2>PRODUCT PITCHES</h2>
         <ul>
             {{macro.displayPitchList(products)}}
         </ul>
-        <h2>PROMOTION PITCHES</h2>
+        </div>
+        
+        <div class="pitches-title">
+            <h2>PROMOTION PITCHES</h2>
         <ul>
             {{macro.displayPitchList(promotions)}}
         </ul>
+        </div>
+        
     </div>
 
-    <div>
-        <a  href="/pitch"> Add Your own Pitch</a>
+    <div class="pitch-link">
+        <p class="link"><a  href="/pitch"> Add Your own Pitch</a></p>
+        
     </div>
    
 </div>
