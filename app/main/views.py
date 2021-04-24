@@ -14,7 +14,7 @@ def index():
     product_pitch = Pitch.get_pitches_by_category('3')
     promotion_pitch = Pitch.get_pitches_by_category('4')
     if pitches is None:
-        return redirect(url_for('pitch.html'))
+        return redirect(url_for('new_pitch.html'))
         title = "pitches"
     return render_template("index.html", pitches = pitches, interviews = interview_pitch, pickups = pickup_lines,products = product_pitch,promotions = promotion_pitch )
 
@@ -31,6 +31,13 @@ def pitch():
         
     return render_template('new_pitch.html',pitch_form = form)
 
+
+
+@main.route('/details/<int:id>')
+def details(id):
+    details = Pitch.get_pitch(id)
+
+    return render_template('details.html', details = details)
 
 
 
