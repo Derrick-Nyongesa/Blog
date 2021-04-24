@@ -10,6 +10,19 @@ from .forms import UpdateProfile,NewPitch
 def index():
     return render_template('/index.html')
 
+@main.route('/pitch', methods = ['GET','POST'])
+@login_required
+def pitch():
+    form = NewPitch()
+    if form.validate_on_submit():
+        pitch = Pitch(pitch = form.pitch.data, category = form.pitch_category.data,title = form.pitch_title.data,pitch = form.pitch_pitch.data,user_id = current_user.id)
+        db.session.add(pitch)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+        title = "pitches"
+        
+    return render_template('new_pitch.html',pitch_form = form)
+
 
 @main.route('/user/<uname>')
 def profile(uname):
