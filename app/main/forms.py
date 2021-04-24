@@ -17,6 +17,5 @@ class NewPitch(FlaskForm):
 
 
 class CommentForm(FlaskForm):
-    title = StringField('Pitch title', validators=[Required()])
-    review = TextAreaField('Comment',)
+    comment = TextAreaField('Comment',)
     submit = SubmitField('Submit')

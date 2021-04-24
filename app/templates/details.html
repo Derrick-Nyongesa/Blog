@@ -7,4 +7,12 @@
     {{macro.displayPitches(pitch)}}
 </div>
 
+<h2>Comments</h2>
+{% if comments %}
+        {{macro.displayComments(comments)}}
+{% else %} 
+        <h3>This pitch has no comments</h3>
+        <a  href="/details/comments/{{pitch.id}}"> Post a new comment</a>
+{% endif %}
+
 {% endblock %}

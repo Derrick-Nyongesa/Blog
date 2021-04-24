@@ -17,3 +17,16 @@
 {% endfor %}
 
 {% endmacro %}
+
+{% macro displayComments(comment_list) %}
+
+{% for comment in comment_list %}
+
+<h4>Author</h4>
+<p>Posted by ~ {{comment.user.username}}</p>
+
+<p>{{comment.comments}}</p>
+
+{% endfor %}
+
+{% endmacro %}

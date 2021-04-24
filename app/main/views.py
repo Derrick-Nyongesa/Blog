@@ -3,7 +3,7 @@ from flask import render_template,request,redirect,url_for
 from . import main
 from ..models import Comment,User,Pitch
 from .. import db,photos
-from .forms import UpdateProfile,NewPitch
+from .forms import UpdateProfile,NewPitch,CommentForm
 
 
 @main.route('/')
@@ -38,6 +38,24 @@ def details(id):
     pitch = Pitch.get_pitch(id)
 
     return render_template('details.html', pitch = pitch)
+
+
+
+@main.route('/details/comments/<int:id>', methods=['GET', 'POST'])
+@login_required
+def new_comment(id):
+    form = CommentForm()
+    title = 'post comment'
+    pitch = Pitch.get_pitch(id)
+    comments = Comment.get_comments(id)
+    if form.validate_on_submit():
+        comment = form.comment.data
+        new_comment = Comment( comment = comment, user_id = current_user.id, pitch_id = id)
+        db.session.add(new_comment)
+        db.session.commit()
+        return redirect(url_for('main.details', id = id))
+
+    return render_template('new_comment.html', comment_form=form, title=title,comments=comments , pitch = pitch)
 
 
 
