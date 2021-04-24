@@ -14,6 +14,14 @@
 <p>{{pitch.pitch}}</p>
 <p>Posted on ~ {{pitch.posted}}</p>
 <p>Posted by ~ {{pitch.user.username}}</p>
+<p>Upvotes ~ {{pitch.upvotes}}</p>
+<p>Downvotes ~ {{pitch.downvotes}}</p>
+<div>
+    <form action="/details/{{pitch.id}}/upvote" method="POST"><input type="submit" value="Upvote" /></form>
+</div>
+<div>
+    <form action="/details/{{pitch.id}}/downvote" method="POST"><input type="submit" value="Downvote" /></form>
+</div>
 {% endfor %}
 
 {% endmacro %}

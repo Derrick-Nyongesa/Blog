@@ -57,7 +57,23 @@ def new_comment(id):
 
     return render_template('new_comment.html', comment_form=form, title=title,comments=comments , pitch = pitch)
 
+@main.route('/details/<int:id>/upvote', methods=['POST'])
+@login_required
+def upvote(id):
+    pitch = Pitch.get_pitch(id)
+    pitch[0].upvotes = pitch[0].upvotes + 1 if pitch[0].upvotes is not None else 1
+    db.session.add(pitch[0])
+    db.session.commit()
+    return redirect(url_for('main.details', id = id))
 
+@main.route('/details/<int:id>/downvote', methods=['POST'])
+@login_required
+def downvote(id):
+    pitch = Pitch.get_pitch(id)
+    pitch[0].downvotes = pitch[0].downvotes + 1 if pitch[0].downvotes is not None else 1
+    db.session.add(pitch[0])
+    db.session.commit()
+    return redirect(url_for('main.details', id = id))
 
 @main.route('/user/<uname>')
 def profile(uname):
