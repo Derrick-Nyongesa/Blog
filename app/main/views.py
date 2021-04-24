@@ -1,7 +1,7 @@
-from flask_login import login_required
+from flask_login import login_required,current_user
 from flask import render_template,request,redirect,url_for
 from . import main
-from ..models import Comment,User
+from ..models import Comment,User,Pitch
 from .. import db,photos
 from .forms import UpdateProfile,NewPitch
 
@@ -15,7 +15,7 @@ def index():
 def pitch():
     form = NewPitch()
     if form.validate_on_submit():
-        pitch = Pitch(pitch = form.pitch.data, category = form.pitch_category.data,title = form.pitch_title.data,pitch = form.pitch_pitch.data,user_id = current_user.id)
+        pitch = Pitch(category = form.category.data,title = form.title.data,pitch = form.pitch.data,user_id = current_user.id)
         db.session.add(pitch)
         db.session.commit()
         return redirect(url_for('main.index'))
