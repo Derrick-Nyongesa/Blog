@@ -36,8 +36,8 @@ def pitch():
 @main.route('/details/<int:id>')
 def details(id):
     pitch = Pitch.get_pitch(id)
-
-    return render_template('details.html', pitch = pitch)
+    comments = Comment.get_comments(id)
+    return render_template('details.html', pitch = pitch, comments = comments)
 
 
 

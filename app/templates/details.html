@@ -12,7 +12,7 @@
         {{macro.displayComments(comments)}}
 {% else %} 
         <h3>This pitch has no comments</h3>
-        <a  href="/details/comments/{{pitch.id}}"> Post a new comment</a>
 {% endif %}
+        <a  href="/details/comments/{{pitch[0].id}}"> Post a new comment</a>
 
 {% endblock %}

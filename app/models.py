@@ -3,6 +3,8 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from . import login_manager
 from datetime import datetime
+from sqlalchemy import desc
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -52,7 +54,7 @@ class Comment(db.Model):
 
     @classmethod
     def get_comments(cls, id):
-        comments = Comment.query.filter_by(pitch_id=id).all()          
+        comments = Comment.query.filter_by(pitch_id=id).order_by(desc('posted')).all()          
         return comments
 
 
@@ -77,5 +79,5 @@ class Pitch(db.Model):
 
     @classmethod
     def get_pitches_by_category(cls,category):
-        pitches = Pitch.query.filter_by(category = category).all()
+        pitches = Pitch.query.filter_by(category = category).order_by(desc('posted')).all()
         return pitches
