@@ -14,10 +14,11 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
-    comments = db.relationship('Comment',backref = 'role',lazy="dynamic")
+    comments = db.relationship('Comment',backref = 'user',lazy="dynamic")
     pass_secure = db.Column(db.String(255))
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
+    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
 
     @property
     def password(self):
@@ -47,8 +48,8 @@ class Comment(db.Model):
         return f'User {self.comment}'
 
 
-class Post(db.Model):
-    __tablename__ = 'posts'
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
 
     id = db.Column(db.Integer,primary_key = True)
     category = db.Column(db.Integer)
@@ -57,16 +58,16 @@ class Post(db.Model):
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
-    def save_post(self):
+    def save_pitch(self):
         db.session.add(self)
         db.session.commit()
 
     @classmethod
-    def get_post(cls,id):
-        post = Post.query.filter_by(id=id).all()
-        return post
+    def get_pitch(cls,id):
+        pitch = Pitches.query.filter_by(id=id).all()
+        return pitch
 
     @classmethod
-    def get_posts_by_category(cls,category):
-        posts = Post.query.filter_by(category = category).all()
+    def get_pitches_by_category(cls,category):
+        pitches = Pitches.query.filter_by(category = category).all()
         return posts
