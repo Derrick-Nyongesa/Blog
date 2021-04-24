@@ -1,7 +1,19 @@
 {% macro displayPitchList(pitch_list) %}
 
 {% for pitch in pitch_list %}
-<li>{{pitch.title}}</li>
+<li><a href="/details/{{pitch.id}}">{{pitch.title}}</a></li>
+<li>Posted by ~ {{pitch.user.username}}</li>
+{% endfor %}
+
+{% endmacro %}
+
+{% macro displayPitches(pitches_list) %}
+
+{% for pitch in pitches_list %}
+<h3>{{pitch.title}}</h3>
+<p>{{pitch.pitch}}</p>
+<p>Posted on ~ {{pitch.posted}}</p>
+<p>Posted by ~ {{pitch.user.username}}</p>
 {% endfor %}
 
 {% endmacro %}
