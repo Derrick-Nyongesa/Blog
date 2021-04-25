@@ -2,7 +2,7 @@ import os
 
 class Config:
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://derrick:daniel@localhost/blog'
+    
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -21,11 +21,11 @@ class ProdConfig(Config):
     pass
 
 class TestConfig(Config):
-    #SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://derrick:daniel@localhost/blog_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://derrick:daniel@localhost/pitch_test'
     pass
 
 class DevConfig(Config):
-    
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://derrick:daniel@localhost/blog'
     
     DEBUG = True
 
