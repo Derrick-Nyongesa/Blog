@@ -3,7 +3,7 @@
 {% for pitch in pitch_list %}
 
 <div class="pitch">
-    <li class="buton"><a href="/details/{{pitch.id}}">{{pitch.title}}</a></li>
+    <li><a href="/details/{{pitch.id}}" class="buton">{{pitch.title}}</a></li>
     <li>Posted by ~ {{pitch.user.username}}</li>
 </div>
     
