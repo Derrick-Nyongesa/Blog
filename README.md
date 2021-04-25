@@ -38,8 +38,7 @@ git clone https://github.com/Derrick-Nyongesa/Blog.git
 
 
 ## Entity relationship diagram 
-![ERD]
-(app/static/photos/ERD.jpeg)
+![ERD](https://user-images.githubusercontent.com/78686755/115996397-b3f2e300-a5e7-11eb-81c1-80c4e8b4b2da.jpeg)
 
 
 
