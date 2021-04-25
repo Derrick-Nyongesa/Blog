@@ -37,6 +37,11 @@ git clone https://github.com/Derrick-Nyongesa/Blog.git
 [Derrick Nyongesa https://derrick-blog.herokuapp.com/](https://derrick-blog.herokuapp.com/)
 
 
+## Entity relationship diagram 
+![ERD]
+(app/static/photos/ERD.jpeg)
+
+
 
 ## Technology used
 * [Python3](https://www.python.org/)
