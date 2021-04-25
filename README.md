@@ -33,6 +33,11 @@ git clone https://github.com/Derrick-Nyongesa/Blog.git
 5. Open the application on your browser `http://127.0.0.1:5000/`
 
 
+## Link to live site on GitHub Pages
+[Derrick Nyongesa https://derrick-blog.herokuapp.com/](https://derrick-blog.herokuapp.com/)
+
+
+
 ## Technology used
 * [Python3](https://www.python.org/)
 * [Flask](http://flask.pocoo.org/)
