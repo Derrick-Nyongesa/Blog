@@ -23,9 +23,13 @@ git clone https://github.com/Derrick-Nyongesa/Blog.git
   pip install -r requirements.txt
   ```
 4. To run the application, run the following commands:
-  ```bash
+    ```bash
     $ export SECRET_KEY=<your secret key>
+    ```
+    ```bash
     $ export MAIL_USERNAME=<your email>
+    ```
+    ```bash
     $ export MAIL_PASSWORD=<your email password>
     ``` 
     ```bash
