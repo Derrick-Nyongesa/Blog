@@ -17,19 +17,20 @@ This in a blog application that allows users will submit their pitches and other
 ```bash
 git clone https://github.com/Derrick-Nyongesa/Blog.git
 ``` 
-2. Move to the folder and install requirements
+2. Move to the folder and create a virtual environment
+3. Install requirements
   ```bash
-  cd Blog
   pip install -r requirements.txt
   ```
-3. Export Configurations
+4. To run the application, run the following commands:
   ```bash
-  export SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://{User Name}:{password}@localhost/{database name}
-  ```
-4. Running the application
-  ```bash
-  python manage.py server
-  ```
+    $ export SECRET_KEY=<your secret key>
+    $ export MAIL_USERNAME=<your email>
+    $ export MAIL_PASSWORD=<your email password>
+    ``` 
+    ```bash
+    $ python3 manage.py server
+    ``` 
 5. Open the application on your browser `http://127.0.0.1:5000/`
 
 
